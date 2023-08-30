@@ -1,5 +1,6 @@
 import { useState } from "react"
 import validate from "../../helpers/validate";
+import style from './form.module.css';
  
 export default function Form({login}){
     const [userData, setUserData] = useState({
@@ -46,30 +47,36 @@ export default function Form({login}){
     }
 
     return(
-        <form >
-            <label>Email</label>
-            <input
-            name="email"
-            type="text"
-            placeholder="example@hotmail.com"
-            value={userData.email}
-            onChange={handleChange}
-            />
-            {errors.email ? <label>{errors.email}</label> : null}
-            <label>Password</label>
-            <input
-            name="password"
-            type="password"
-            placeholder="password"
-            value={userData.password}
-            onChange={handleChange}
-            />
-            {errors.password ? <label>{errors.password}</label> : null}
-            <button 
-            type='submit'
-            disabled={disableHandler()}
-            onClick={submitHandler}
-            >Submit</button>
+        <form className={style.login}>
+            <div className={style.loginText}>
+                <h1 className={style.h1}>Login</h1>
+                <p className={style.p}>Login here using your email and password</p>
+            </div>
+            <div className={style.loginMenu}>
+                <label className={style.label}>Email</label>
+                <input className={style.input}
+                name="email"
+                type="text"
+                placeholder="example@hotmail.com"
+                value={userData.email}
+                onChange={handleChange}
+                />
+                <label className={style.errors}>{errors.email || "\u00A0"}</label>
+                <label className={style.label}>Password</label>
+                <input className={style.input}
+                name="password"
+                type="password"
+                placeholder="password"
+                value={userData.password}
+                onChange={handleChange}
+                />
+                <label className={style.errors}>{errors.password || "\u00A0"}</label>
+                <button className={style.button}
+                type='submit'
+                disabled={disableHandler()}
+                onClick={submitHandler}
+                >Submit</button>
+            </div>
         </form>
     )
 }
