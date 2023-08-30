@@ -1,18 +1,21 @@
 import './App.css';
 import Cards from './components/Cards/Cards.jsx';
 import Nav from './components/Nav/Nav.jsx';
-import React from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import Detail from './components/Detail/Detail.jsx';
 import About from './components/About/About.jsx';
 import Error from './components/Error/Error.jsx';
 import Form from './components/Form/Form.jsx';
+import Favorites from './components/Favorites/Favorites';
+import { removeFavorite } from './redux/actions/actions';
+
 
 function App() {
    let memory = [];
 
-   const [characters, setCharacters] = React.useState([]);
+   const [characters, setCharacters] = useState([]);
    //https://rym2-production.up.railway.app/api/character/$%7Bid%7D?key=henrym-usuariodegithub
    function searchHandler(id) {
       if(!memory.includes(id)){
@@ -33,7 +36,10 @@ function App() {
          (character) => character.id !== Number(id)
       );
       setCharacters(filteredCharacters);
+      removeFavorite(id);
    }
+
+
 
    function randomHandler() {
       let random = (Math.random()*826).toFixed();
@@ -56,14 +62,46 @@ function App() {
    }
    let location = useLocation();
 
+
+   const navigate = useNavigate();
+   const [access, setAccess] = useState(false);
+   const EMAIL = 'axel@gmail.com';
+   const PASSWORD = '123123a';
+
+   function loginHandler(userData) {
+      if (userData.password === PASSWORD && userData.email === EMAIL) {
+         setAccess(true);
+         navigate('/home');
+      }
+   }
+
+   const logoutHandler = () => {
+      setAccess(false);
+   }
+
+   useEffect(() => {
+      !access && navigate('/');
+   }, [access]);
+
+
+
+
    return (
       <div className='App'>
          {location.pathname !== '/' ? 
-         <Nav onSearch={searchHandler} randomize={randomHandler}></Nav> : null}
+         <Nav 
+            onSearch={searchHandler} 
+            randomize={randomHandler}
+            logout={logoutHandler}   
+         /> : null}
          <Routes>
             <Route
             path='/'
-            element={<Form/>}
+            element={<Form login={loginHandler}/>}
+            />
+            <Route
+            path='/favorites'
+            element = {<Favorites/>}
             />
               
             <Route   
@@ -79,7 +117,7 @@ function App() {
             element={<About/>}
             />
             <Route
-            path='*'
+            path="*"
             element ={<Error/>}
             />
          </Routes>

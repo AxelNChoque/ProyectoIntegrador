@@ -1,27 +1,7 @@
-import { useEffect, useState } from "react"
-
-    let validate = (input) => {
-        let error = {};
-        if(!input.email){
-            error.mail='Ingresar un email';
-        }
-        if(!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(input.email)){
-            error.email='Ingresar un email valido';
-        }
-        if(input.email.length>35){
-            error.email='El email no puede tener mas de 35 caracteres';
-        }
-        if(!/\d/.test(input.password)){
-            error.password='La contraseña debe tener al menos 1 numero';
-        }
-        if(!/^.{6,10}$/.test(input.password)){
-            error.password='La contraseña debe tener entre 6 y 10 digitos';
-        }
-
-        return error;
-    }
-    
-export default function Form(){
+import { useState } from "react"
+import validate from "../../helpers/validate";
+ 
+export default function Form({login}){
     const [userData, setUserData] = useState({
         email:'',
         password:'',
@@ -37,7 +17,7 @@ export default function Form(){
     let handleChange = (event) => {
         setUserData({
             ...userData,
-            [event.target.name] : [event.target.value], 
+            [event.target.name] : event.target.value, 
         });
 
         setErrors(
@@ -48,8 +28,25 @@ export default function Form(){
         )
     }
 
+    const submitHandler= event => {
+        event.preventDefault();
+        login(userData);
+    }
+
+    const disableHandler = () => {
+        let disabled;
+        for (let error in errors){
+            if(errors[error] === '') disabled = false
+            else {
+                disabled = true;
+                break;
+            }
+        }
+        return disabled;
+    }
+
     return(
-        <form>
+        <form >
             <label>Email</label>
             <input
             name="email"
@@ -70,6 +67,8 @@ export default function Form(){
             {errors.password ? <label>{errors.password}</label> : null}
             <button 
             type='submit'
+            disabled={disableHandler()}
+            onClick={submitHandler}
             >Submit</button>
         </form>
     )

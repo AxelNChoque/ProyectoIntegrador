@@ -1,7 +1,7 @@
 import SearchBar from "../SearchBar/SearchBar.jsx"
 import { NavLink } from "react-router-dom"
 
-export default function Nav({onSearch, randomize}) {
+export default function Nav({onSearch, randomize, logoutHandler}) {
     return(
         <div>
             <SearchBar onSearch={onSearch} />
@@ -15,6 +15,16 @@ export default function Nav({onSearch, randomize}) {
                     to="/about"
                 >
 	                About
+                </NavLink>
+                <NavLink
+                    to='/favorites'>
+                    Favorites
+                </NavLink>
+                <NavLink
+                    onClick={logoutHandler}
+                    to='/'
+                >
+                    Logout
                 </NavLink>
             </div>
             <button onClick={randomize}>Randomizer</button>
