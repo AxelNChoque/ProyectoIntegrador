@@ -1,33 +1,41 @@
 import SearchBar from "../SearchBar/SearchBar.jsx"
-import { NavLink } from "react-router-dom"
+import { NavLink, useLocation } from "react-router-dom"
+import style from './nav.module.css';
+import rym from '../../assets/rym.png'
 
 export default function Nav({onSearch, randomize, logoutHandler}) {
+    const location = useLocation();
     return(
-        <div>
-            <SearchBar onSearch={onSearch} />
-            <div>
-                <NavLink
+        <div className={style.nav}>
+            <div className={style.navContainer}>
+                <img src={rym} alt={rym} className={style.image}/>
+                <NavLink    className={style.navBar}
                     to="/home"
                 >
 	                Home
                 </NavLink>
-                <NavLink
+                <NavLink    className={style.navBar}
+                    to='/favorites'>
+                    Favorites
+                </NavLink>
+                <NavLink    className={style.navBar}
                     to="/about"
                 >
 	                About
                 </NavLink>
-                <NavLink
-                    to='/favorites'>
-                    Favorites
-                </NavLink>
-                <NavLink
+                <NavLink    className={style.navBar}
                     onClick={logoutHandler}
                     to='/'
                 >
                     Logout
                 </NavLink>
             </div>
-            <button onClick={randomize}>Randomizer</button>
+            {location.pathname == '/home'? <div className={style.containerSearcher}>
+            <SearchBar onSearch={onSearch} />
+            <button 
+            className={style.randomizerBtn}
+            onClick={randomize}>Randomizer</button>
+            </div> : null}
         </div>
     )
 }

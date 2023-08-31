@@ -1,0 +1,41 @@
+.nav{
+    font-family: 'Poppins', sans-serif;
+}
+
+.image{
+    height: 3rem;
+    width: 8rem;
+    margin-top: 1rem;
+    margin-left: 2rem;
+}
+
+.navBar{
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.5rem;
+    color: #CCD0D3;
+    transition: background-color  color 0.2s;
+    border-radius: 10px;
+    margin: 1.5rem;
+}
+.navBar:hover {
+    background-color: #151617;
+    color: #9fa2a5;
+  }
+.navContainer{
+    display: grid;
+    grid-template-columns: 6fr 1fr 1fr 1fr 1fr;
+    grid-gap:2rem;
+    background-color: black;
+    height: 4.8rem;
+}
+.containerSearcher{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.randomizerBtn{
+    margin-left: 20px;
+    margin-top: 1rem;
+}

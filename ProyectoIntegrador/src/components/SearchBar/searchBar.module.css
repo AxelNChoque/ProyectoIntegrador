@@ -1,0 +1,21 @@
+
+.input{
+    
+    margin-right: 20px;
+    background-color: #737880;
+    height: 1.2rem;
+    width: 4.5rem;
+    border-radius:4rem;
+    border:0px;
+    outline: none;
+    padding-left: .5rem;
+    padding: .8rem;
+    color:var(--letrasBlanco);
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.input::placeholder{
+    color: #B8BBBF;
+    text-align: center;
+}
