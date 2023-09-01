@@ -32,6 +32,11 @@ export default function Form({login}){
     const submitHandler= event => {
         event.preventDefault();
         login(userData);
+        setUserData({
+            email:'',
+            password:''
+        }
+        );
     }
 
     const disableHandler = () => {
@@ -71,7 +76,8 @@ export default function Form({login}){
                 onChange={handleChange}
                 />
                 <label className={style.errors}>{errors.password || "\u00A0"}</label>
-                <button className={style.button}
+                <button 
+                className={`${style.button} ${disableHandler() ? style.disabledButton : ""}`}
                 type='submit'
                 disabled={disableHandler()}
                 onClick={submitHandler}

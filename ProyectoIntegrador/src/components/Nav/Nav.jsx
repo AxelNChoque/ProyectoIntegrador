@@ -6,7 +6,7 @@ import rym from '../../assets/rym.png'
 export default function Nav({onSearch, randomize, logoutHandler}) {
     const location = useLocation();
     return(
-        <div className={style.nav}>
+        <div className={style.navbar}>
             <div className={style.navContainer}>
                 <img src={rym} alt={rym} className={style.image}/>
                 <NavLink    className={style.navBar}

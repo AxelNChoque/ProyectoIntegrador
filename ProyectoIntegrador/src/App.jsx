@@ -10,7 +10,7 @@ import Error from './components/Error/Error.jsx';
 import Form from './components/Form/Form.jsx';
 import Favorites from './components/Favorites/Favorites';
 import { removeFavorite } from './redux/actions/actions';
-
+import style from './App.css?inline'
 
 function App() {
    let memory = [];
@@ -72,6 +72,8 @@ function App() {
       if (userData.password === PASSWORD && userData.email === EMAIL) {
          setAccess(true);
          navigate('/home');
+      } else {
+         alert('Wrong email or password');
       }
    }
 
@@ -87,7 +89,7 @@ function App() {
 
 
    return (
-      <div className='App'>
+      <div className={style.App}>
          {location.pathname !== '/' ? 
          <Nav 
             onSearch={searchHandler} 
@@ -106,7 +108,10 @@ function App() {
               
             <Route   
             path='/home'
-            element={<Cards characters={characters} onClose={closeHandler}/>}
+            element={<Cards
+               className={style.cardsContainer}
+               characters={characters} 
+               onClose={closeHandler}/>}
             />
             <Route   
             path='/detail/:id'

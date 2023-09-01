@@ -1,9 +1,12 @@
 :root{
     --letrasBlanco:#EEF7F7;
+    --login:#F0F0F0 ;
+    --loginText:#FFFFFF;
+    --loginMenu: #333333 ;
 }
 
 .login{
-    background-color: #E8E9EA;
+    background-color: var(--login);
     width: 100%;
     height: 100vh;
     display: flex;
@@ -12,7 +15,7 @@
     font-family: 'Poppins', sans-serif;
 }
 .loginText{
-    background-color: white;
+    background-color:var(--loginText);
     width: 28rem;
     height:20rem;
     display: flex;
@@ -23,9 +26,9 @@
 
 }
 .loginMenu{
-    background-color: #52575C;
+    background-color: var(--loginMenu);
     width: 30rem;
-    height: 25rem;
+    height: 27rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -59,6 +62,12 @@
 .input::placeholder{
     color: #B8BBBF;
 }
+
+.errors{
+    margin-top: .8rem;
+    color:var(--letrasBlanco);
+
+}
 .button{
     background-color: transparent;
     border: none;
@@ -67,14 +76,12 @@
     font-size: 1.8rem;
     font-weight: bold;
     transition: transform 0.2s ease;
+    color: var(--letrasBlanco);
 }
-.errors{
-    margin-top: .8rem;
-    color:var(--letrasBlanco);
-
+.button:hover:not(.disabledButton) {
+    transform: scale(1.1);
 }
-.button:hover {
-    &:not([disabled]):hover {
-        transform: scale(1.1);
-    }
+.disabledButton {
+    cursor: not-allowed;
+    color: #8B8E90;
 }

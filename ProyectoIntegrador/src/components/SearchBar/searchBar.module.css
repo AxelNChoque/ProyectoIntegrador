@@ -1,21 +1,39 @@
 
 .input{
     
-    margin-right: 20px;
+    margin-right: 1rem;
     background-color: #737880;
     height: 1.2rem;
-    width: 4.5rem;
+    width: 3.5rem;
     border-radius:4rem;
     border:0px;
     outline: none;
-    padding-left: .5rem;
-    padding: .8rem;
+    padding: .8rem 0 .8rem .6rem;
     color:var(--letrasBlanco);
     text-align: center;
     margin-top: 1rem;
+    font-size: 1rem;
 }
 
 .input::placeholder{
     color: #B8BBBF;
     text-align: center;
 }
+.addBtn{
+    margin-left: 20px;
+    margin-top: 1rem;
+    border-radius: 1rem;
+    border: none;
+    cursor: pointer;
+    padding: 5px 1rem 5px 1rem;
+    background-color: #333333;
+    color: var(--letra);
+    transition: background-color  color 0.2s;
+    font-size: 1rem;
+
+    
+}
+.addBtn:hover {
+    background-color: #151617;
+    color: #9fa2a5;
+  }

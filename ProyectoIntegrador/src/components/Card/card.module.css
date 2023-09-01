@@ -1,0 +1,18 @@
+.container{
+    width: 25rem;
+    height: 14rem;
+    background-color: red;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    border-radius: 2rem;
+}
+.image{
+    margin-left: 1rem;
+    width:  10rem;
+    height: 12rem;
+    border-radius: 2rem;
+}
+.desc{
+    font-size: 10px;
+}
