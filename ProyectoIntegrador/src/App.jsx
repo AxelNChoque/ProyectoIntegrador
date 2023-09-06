@@ -17,10 +17,12 @@ function App() {
 
    const [characters, setCharacters] = useState([]);
    //https://rym2-production.up.railway.app/api/character/$%7Bid%7D?key=henrym-usuariodegithub
+   
+   
    function searchHandler(id) {
       if(!memory.includes(id)){
          memory.push(id);
-         axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
+         axios(`http://localhost:3001/rickandmorty/character/${id}`).then(({ data }) => {
             if (data.name) {
                setCharacters((oldChars) => [...oldChars, data]);
             } else {
@@ -31,6 +33,8 @@ function App() {
          alert('Repetido');
       }
    }
+
+   
    function closeHandler(id) {
       let filteredCharacters = characters.filter(
          (character) => character.id !== Number(id)
@@ -42,12 +46,12 @@ function App() {
 
 
    function randomHandler() {
-      let random = (Math.random()*826).toFixed();
+      let random = (Math.random()*5).toFixed();
       random = Number(random);
 
       if(!memory.includes(random)){   
          memory.push(random);      
-         axios(`https://rickandmortyapi.com/api/character/${random}`).then(({ data }) => {
+         axios(`http://localhost:3001/rickandmorty/character/${random}`).then(({ data }) => {
             if (data.name) {
                setCharacters((oldChars) => [...oldChars, data]);
             } else {
