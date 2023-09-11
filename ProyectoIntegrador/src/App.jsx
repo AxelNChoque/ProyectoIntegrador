@@ -1,9 +1,9 @@
-import './App.css';
-import Cards from './components/Cards/Cards.jsx';
-import Nav from './components/Nav/Nav.jsx';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+
+import Cards from './components/Cards/Cards.jsx';
+import Nav from './components/Nav/Nav.jsx';
 import Detail from './components/Detail/Detail.jsx';
 import About from './components/About/About.jsx';
 import Error from './components/Error/Error.jsx';
@@ -46,7 +46,7 @@ function App() {
 
 
    function randomHandler() {
-      let random = (Math.random()*5).toFixed();
+      let random = (Math.random()*826).toFixed();
       random = Number(random);
 
       if(!memory.includes(random)){   
@@ -73,12 +73,19 @@ function App() {
    const PASSWORD = '123123a';
 
    function loginHandler(userData) {
-      if (userData.password === PASSWORD && userData.email === EMAIL) {
-         setAccess(true);
-         navigate('/home');
-      } else {
-         alert('Wrong email or password');
-      }
+      // if (userData.password === PASSWORD && userData.email === EMAIL) {
+      //    setAccess(true);
+      //    navigate('/home');
+      // } else {
+      //    alert('Wrong email or password');
+      // }
+      const { email, password } = userData;
+      const URL = 'http://localhost:3001/rickandmorty/login/';
+      axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+         const { access } = data;
+         setAccess(data);
+         access && navigate('/home');
+      });
    }
 
    const logoutHandler = () => {
