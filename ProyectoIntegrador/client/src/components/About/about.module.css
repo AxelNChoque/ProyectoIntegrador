@@ -1,0 +1,13 @@
+.container{
+    text-align: center;
+}
+.desc{
+    display: flex;
+    margin: 5rem;
+    text-align: start;
+    font-size: 1.5rem;
+}
+.image{
+    margin-right: 10rem;
+    height: 20rem;
+}

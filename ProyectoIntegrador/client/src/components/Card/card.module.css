@@ -1,0 +1,38 @@
+.container{
+    width: 25rem;
+    height: 14rem;
+    background-color: 	black;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    border-radius: 2rem;
+}
+.image{
+    margin-left: 1rem;
+    width:  10rem;
+    height: 12rem;
+    border-radius: 2rem;
+}
+.desc{
+    font-size: 10px;
+    color:#BBE0F2;
+    height: 100%;
+}
+
+.buttons{
+    display: flex;
+    height: 1.5rem;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 1rem;
+}
+
+.buttons button {
+    justify-content: center;
+    border-radius: 12px;
+    height: 1.5rem;
+    width: 1.8rem;
+    border: none;
+    font-weight: bold;
+    margin: 4px;
+}
