@@ -3,11 +3,13 @@
 }
 .favContainer{
 
-    background-color: #ABB2B9;
+    background-color: #242526;
     height: 3.2rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    
+    
 }
 .selecter{
     border-radius: 10px;
@@ -19,4 +21,5 @@
     color: var(--letra);
     padding: 5px 0px 5px 0px;
     text-align: center;
+    border: 2px solid #393A3B;
 }

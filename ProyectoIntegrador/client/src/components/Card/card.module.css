@@ -1,11 +1,12 @@
 .container{
     width: 25rem;
     height: 14rem;
-    background-color: 	black;
+    background-color: 	#18191A;
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
     border-radius: 2rem;
+    border: 2px solid #393A3B;
 }
 .image{
     margin-left: 1rem;
@@ -15,8 +16,9 @@
 }
 .desc{
     font-size: 10px;
-    color:#BBE0F2;
+    color:#E4E6EB;
     height: 100%;
+    cursor: default;
 }
 
 .buttons{
@@ -35,4 +37,11 @@
     border: none;
     font-weight: bold;
     margin: 4px;
+    cursor: pointer;
+    background-color: #E4E6EB;
+    transition: background-color  color 0.2s;
 }
+
+.buttons button:hover {
+    background-color:#5A5A5D;
+  }

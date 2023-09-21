@@ -50,7 +50,7 @@ function Card(props) {
                   isFav ? (
                   <button onClick={()=>handleFavorite(character)}>❤️</button>
                   ) : (
-                  < button onClick={()=>handleFavorite(character)}>🤍</button>
+                  <button onClick={()=>handleFavorite(character)}>🤍</button>
                   )
                }
             

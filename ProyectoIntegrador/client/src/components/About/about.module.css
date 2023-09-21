@@ -1,13 +1,26 @@
 .container{
     text-align: center;
+    cursor: default;
 }
 .desc{
     display: flex;
     margin: 5rem;
     text-align: start;
     font-size: 1.5rem;
+    color: #E0E2E6;
 }
 .image{
     margin-right: 10rem;
     height: 20rem;
+    border-radius: 1rem;
+}
+.desc p{
+    margin-left: 2rem;
+}
+.title{
+    color:#E0E2E6;
+}
+.henry{
+    margin: 5rem;
+    height: 5rem;
 }

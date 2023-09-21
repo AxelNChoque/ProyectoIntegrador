@@ -2,7 +2,7 @@
 .input{
     
     margin-right: 1rem;
-    background-color: #737880;
+    background-color: #3A3B3C;
     height: 1.2rem;
     width: 3.5rem;
     border-radius:4rem;
@@ -30,7 +30,7 @@
     color: var(--letra);
     transition: background-color  color 0.2s;
     font-size: 1rem;
-
+    border: 2px solid #393A3B;
     
 }
 .addBtn:hover {
